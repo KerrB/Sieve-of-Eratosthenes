@@ -18,11 +18,45 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     else
     {
-      
+      document.querySelector("#result").innerText = "" + soe(n);
     }
 
 
   });
+
+  function soe(number)
+  {
+    let arr=[];
+    let boolArr=[];
+    for(let i=2; i<=number; i++)
+    {
+      boolArr.push(true);
+    }
+    for(let i=2; i<=number; i++)
+    {
+      if(boolArr[i-2])
+      {
+        for(let j=i; j<=number; j=j+i)
+        {
+          if(j!=2&&j!=i)
+          {
+            boolArr[j-2]=false;
+          }
+        }
+      }
+    }
+    for(let i=2; i<=number; i++)
+    {
+      if(boolArr[i-2])
+      {
+        arr.push(i);
+      }
+    }
+
+    return arr;
+
+
+  }
 
 
 
